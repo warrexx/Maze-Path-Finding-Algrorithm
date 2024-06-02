@@ -97,7 +97,7 @@ class Mouse:
                     current_wall, next_wall = "left", "right"
 
                 elif dx == 1 and dy == 0:
-                    current_wall, next_wall = "top", "bottom"
+                    current_wall, next_wall = "right", "left"
 
                 next_x = x + dx
                 next_y = y + dy
