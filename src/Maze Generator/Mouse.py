@@ -1,5 +1,8 @@
 import pygame
 from random import choice
+from typing import List, Optional
+
+from Tile import Tile
 
 
 class Mouse:
@@ -10,7 +13,7 @@ class Mouse:
         self.visited = False
         self.color = color
         self.TILE = TILE
-        self.previous_tile: Mouse = None
+        self.previous_tile: Optional[Mouse] = None
         self.g_cost = 0
         self.h_cost = 1000
         self.f_cost = 0
@@ -72,7 +75,9 @@ class Mouse:
             radius,
         )
 
-    def check_next_tile_candidates(self, mouse_pos, maze):
+    def check_next_tile_candidates(
+        self, mouse_pos: list[list["Mouse"]], maze: list[list[Tile]]
+    ):
 
         rows = len(mouse_pos)
         cols = len(mouse_pos[0])

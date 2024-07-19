@@ -4,7 +4,7 @@ from random import choice
 
 class Tile:
 
-    def __init__(self, x, y, TILE, screen: pygame.surface) -> None:
+    def __init__(self, x: int, y: int, TILE: int, screen: pygame.surface) -> None:
         self.Tile = TILE
         self.x = x
         self.y = y
@@ -107,7 +107,7 @@ class Tile:
 
         return neighbours
 
-    def move(self, maze):
+    def move(self, maze: list[list["Tile"]]):
         neighbours = self.check_neighbours(maze)
 
         if neighbours:
@@ -116,7 +116,7 @@ class Tile:
         return False
 
     @staticmethod
-    def remove_wall(current_tile, next_tile):
+    def remove_wall(current_tile: "Tile", next_tile: "Tile"):
         dx = next_tile.x - current_tile.x
         dy = next_tile.y - current_tile.y
 
@@ -132,6 +132,6 @@ class Tile:
             current_tile.walls["bottom"] = False
             next_tile.walls["top"] = False
 
-        elif dx == -1:
+        elif dy == -1:
             current_tile.walls["top"] = False
             next_tile.walls["bottom"] = False
